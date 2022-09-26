@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivDesfazerUltimaCamada"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:drawable/ic_menu_revert" />
+
+            <ImageView
+                android:id="@+id/ivColorPicker"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/wheel" />
+
+            <RadioGroup
+                android:id="@+id/rg_FormatosTraco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_FormatoTracoLinha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@android:drawable/button_onoff_indicator_off" />
+
+                <RadioButton
+                    android:id="@+id/rb_FormatoTracoQuadrado"
+                    android:layout_width="29dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@android:drawable/picture_frame"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/rb_FormatoTracoCirculo"
+                    android:layout_width="31dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="?android:attr/listChoiceIndicatorSingle"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </RadioGroup>
+
+        </TableRow>
+    </TableLayout>
+
+    <ifsc.espindula.mypaint.SimplePaint
+        android:id="@+id/simplePaint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

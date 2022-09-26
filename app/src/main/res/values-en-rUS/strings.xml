@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyPaint</string>
+    <string name="selecionar">Select</string>
+    <string name="cancelar">Cancel</string>
+    <string name="seletor_de_cores">Color picker</string>
+</resources>
