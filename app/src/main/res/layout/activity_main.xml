@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -58,6 +58,11 @@
 
             </RadioGroup>
 
+            <SeekBar
+                android:id="@+id/sbEspessuraTraco"
+                android:layout_width="208dp"
+                android:layout_height="match_parent" />
+
         </TableRow>
     </TableLayout>
 
@@ -65,4 +70,5 @@
         android:id="@+id/simplePaint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </LinearLayout>

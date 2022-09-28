@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 
 import com.skydoves.colorpickerview.ColorEnvelope;
 import com.skydoves.colorpickerview.ColorPickerDialog;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView m_ivColorPicker;
     private SimplePaint m_SimplePaint;
     private RadioGroup m_rgFormatosTraco;
+    private SeekBar m_sbEspessuraTraco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +28,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         m_ivDesfazerUltimaCamada = findViewById(R.id.ivDesfazerUltimaCamada);
-        m_ivColorPicker        = findViewById(R.id.ivColorPicker);
-        m_SimplePaint          = findViewById(R.id.simplePaint);
-        m_rgFormatosTraco      = findViewById(R.id.rg_FormatosTraco);
+        m_ivColorPicker          = findViewById(R.id.ivColorPicker);
+        m_SimplePaint            = findViewById(R.id.simplePaint);
+        m_rgFormatosTraco        = findViewById(R.id.rg_FormatosTraco);
+        m_sbEspessuraTraco       = findViewById(R.id.sbEspessuraTraco);
 
         m_ivDesfazerUltimaCamada.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,9 +78,26 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.rb_FormatoTracoQuadrado: formatoTraco = FormatoTraco.QUADRADO; break;
                     case R.id.rb_FormatoTracoCirculo : formatoTraco = FormatoTraco.CIRCULO ; break;
                 }
-                Log.d("m_formatoTraco", ""+formatoTraco);
                 m_SimplePaint.getCamadaCorrente().setFormatoTraco(formatoTraco);
-                Log.d("m_SimplePaint", ""+m_SimplePaint.getCamadaCorrente().getFormatoTraco());
+            }
+        });
+
+        m_sbEspessuraTraco.setMin(Espessura.MINIMO);
+        m_sbEspessuraTraco.setMax(Espessura.MAXIMO);
+        m_sbEspessuraTraco.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                m_SimplePaint.getCamadaCorrente().setEspessuraTraco(seekBar.getProgress());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }
